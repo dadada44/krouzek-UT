@@ -121,7 +121,7 @@ header {
 }
 
 
-    @media (max-width: 576px) { 
+    @media (max-width: 722px) { 
         .hamburger {
             display: flex !important;
             flex-direction: column;
