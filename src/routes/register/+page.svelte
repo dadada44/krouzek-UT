@@ -9,7 +9,6 @@
 	let datum_nar = '';
 	let notification = '';
 
-	// Funkce pro validaci hesla
 	function validatePassword(password: string) {
 		const errors = [];
 		if (!/[A-Z]/.test(password)) {
@@ -24,24 +23,20 @@
 		return errors;
 	}
 
-	// Funkce pro registraci uživatele
 	async function register() {
 		notification = '';
 
-		// Kontrola, jestli hesla odpovídají
 		if (password !== confirmPassword) {
 			notification = 'Passwords do not match.';
 			return;
 		}
 
-		// Validace hesla
 		const passwordErrors = validatePassword(password);
 		if (passwordErrors.length > 0) {
 			notification = passwordErrors.join(' ');
 			return;
 		}
 
-		// Příprava dat z formuláře
 		const formData = new FormData();
 		formData.append('email', email);
 		formData.append('nickname', nickname);
@@ -69,52 +64,144 @@
 		}
 	}
 </script>
-		
 
+<div class="page-container">
+	<form class="registration-form" on:submit|preventDefault={register}>
+		<h1>Registrace</h1>
 
-
-
-<form on:submit|preventDefault={register} >
-    <h1>REGISTRACE</h1>
-    
-	<label>
-        Jméno
-        <input type="text" bind:value={jmeno}  required >
-    </label>
-	<label>
-        Přijmení
-        <input type="text" bind:value={prijmeni} required >
-    </label>
-	
-	<label >
-        Nickname
-        <input type="text" bind:value={nickname}  required>
-    </label>
-    <label >
-        E-mail
-        <input type="email" bind:value={email} required >
-    </label>
-    <label>
-        Heslo
-        <input type="password" bind:value={password} required >
-    </label>
-    <label>
-        Potvrzeni hesla
-        <input type="password" bind:value={confirmPassword}  required >
-    </label>
-	<label>
-        Datum 
-		<input type="date" bind:value={datum_nar} required >
-    </label>
-    <button type="submit"><strong>Vytvořit účet</strong></button>
-    <div>
-        <a href="/login">Již máte učet?</a>
-    </div>
+		<label>
+			Jméno
+			<input type="text" bind:value={jmeno} required />
+		</label>
+		<label>
+			Příjmení
+			<input type="text" bind:value={prijmeni} required />
+		</label>
+		<label>
+			Nickname
+			<input type="text" bind:value={nickname} required />
+		</label>
+		<label>
+			E-mail
+			<input type="email" bind:value={email} required />
+		</label>
+		<label>
+			Heslo
+			<input type="password" bind:value={password} required />
+		</label>
+		<label>
+			Potvrzení hesla
+			<input type="password" bind:value={confirmPassword} required />
+		</label>
+		<label>
+			Datum narození
+			<input type="date" bind:value={datum_nar} required />
+		</label>
+		<button type="submit"><strong>Vytvořit účet</strong></button>
+		<div>
+			<a href="/login">Již máte účet?</a>
+		</div>
 	</form>
-		{#if notification}
-			<p>{notification}</p>
-		{/if}
 
-		{#if registrationSuccess}
-			<p>Registration successful! Check your email to verify your account.</p>
-		{/if}
+	{#if notification}
+		<p class="notification">{notification}</p>
+	{/if}
+
+	{#if registrationSuccess}
+		<p class="success">Registration successful! Check your email to verify your account.</p>
+	{/if}
+</div>
+
+<style>
+	body {
+		margin: 0;
+		font-family: Arial, sans-serif;
+		background: linear-gradient(to bottom, #fff, #f0f0f0);
+		color: #333;
+	}
+
+	.page-container {
+		background: url('/login-back.png') no-repeat center center fixed;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 20px;
+	}
+
+	.registration-form {
+		background-color: #fff;
+		padding: 30px;
+		border-radius: 10px;
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+		width: 400px;
+	}
+
+	.registration-form h1 {
+		font-size: 2em;
+		color: #ff8000;
+		margin-bottom: 20px;
+		text-align: center;
+	}
+
+	.registration-form label {
+		display: block;
+		margin-bottom: 10px;
+		font-size: 1.1em;
+		color: #555;
+	}
+
+	.registration-form input {
+		width: 100%;
+		padding: 10px;
+		margin-bottom: 15px;
+		border: 1px solid #ddd;
+		border-radius: 5px;
+		font-size: 1em;
+	}
+
+	.registration-form button {
+		background-color: #007bff;
+		color: white;
+		padding: 12px;
+		border: none;
+		border-radius: 5px;
+		font-size: 1.2em;
+		width: 100%;
+		cursor: pointer;
+	}
+
+	.registration-form button:hover {
+		background-color: #0056b3;
+	}
+
+	.registration-form a {
+		display: block;
+		margin-top: 15px;
+		font-size: 0.9em;
+		color: #007bff;
+		text-align: center;
+		text-decoration: none;
+	}
+
+	.registration-form a:hover {
+		text-decoration: underline;
+	}
+
+	.notification {
+		color: red;
+		margin-top: 15px;
+		text-align: center;
+	}
+
+	.success {
+		color: green;
+		margin-top: 15px;
+		text-align: center;
+	}
+
+	@media (max-width: 768px) {
+		.registration-form {
+			width: 90%;
+		}
+	}
+</style>

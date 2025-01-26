@@ -1,5 +1,6 @@
 <script>
     import Header from "$lib/components/Header.svelte";
+    import Footer from "$lib/components/Footer.svelte";
     import { fly } from 'svelte/transition';
     import { page } from '$app/stores';
 
@@ -16,6 +17,7 @@
 
 
 <Header />
+
 
 {#key $page.url}
   <main
@@ -64,3 +66,5 @@
       box-sizing: border-box;
   }
 </style>
+
+<Footer></Footer>

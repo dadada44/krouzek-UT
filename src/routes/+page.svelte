@@ -1,6 +1,7 @@
 <script>
-	import { text } from 'drizzle-orm/sqlite-core';
-  import Header from "$lib/components/Header.svelte";
+  import Button from "$lib/components/Button.svelte";
+
+  import { text } from 'drizzle-orm/sqlite-core';
   import { onMount } from "svelte";
   import AOS from "aos";
   import "aos/dist/aos.css";
@@ -30,7 +31,8 @@
         <div class="text-content">
           <h2>Naším cílem je vytvořit prostor, kde mohou pedagogové sdílet své zkušenosti, 
               materiály a nápady pro inspiraci a podporu vzdělávání.</h2>
-          <button>hi</button>
+            <button Button>Hi</button>
+
         </div>
 
         <div class="img-content">
@@ -44,7 +46,6 @@
 <style>
   main {
     background: url('/skola-background.png') no-repeat center center/cover;
-    box-shadow: inset 0px -104px 43px -10px rgba(255, 255, 255, 1);
     min-height: 100vh;
     display: flex;
     align-items: center;
