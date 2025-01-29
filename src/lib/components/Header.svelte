@@ -45,9 +45,6 @@
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
-
-
-
 header {
     background-color: #ffffff;
     height: 100px;
@@ -102,6 +99,7 @@ header {
             gap: 2px; /* Mezera mezi odkazy */
             align-items: center;
             margin-right: 35px;
+            z-index: 1000;
 
             a {
                 margin: 15px;

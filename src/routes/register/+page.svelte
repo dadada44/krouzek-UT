@@ -66,6 +66,8 @@
 </script>
 
 <div class="page-container">
+	<img src="/login-back.png" class="background" alt="">
+	<div class="udaje">
 	<form class="registration-form" on:submit|preventDefault={register}>
 		<h1>Registrace</h1>
 
@@ -111,17 +113,39 @@
 		<p class="success">Registration successful! Check your email to verify your account.</p>
 	{/if}
 </div>
+</div>
 
 <style>
-	body {
-		margin: 0;
-		font-family: Arial, sans-serif;
-		background: linear-gradient(to bottom, #fff, #f0f0f0);
-		color: #333;
+
+	.udaje {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 20px;
+	}
+
+	.background {
+		width: 100vw;
+		height: 100vh;
+		position: fixed;
+		object-fit: cover;
+		z-index: -1;
+		top: 0;
+		left: 0;
+		filter: brightness(0.9);
 	}
 
 	.page-container {
-		background: url('/login-back.png') no-repeat center center fixed;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		height: 100vh;
+		padding: 75px;
+	}
+
+	.udaje {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -199,9 +223,6 @@
 		text-align: center;
 	}
 
-	@media (max-width: 768px) {
-		.registration-form {
-			width: 90%;
-		}
-	}
 </style>
+
+

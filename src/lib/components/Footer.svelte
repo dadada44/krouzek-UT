@@ -30,6 +30,7 @@
         border-top: 5px solid #ff8000;
         padding: 20px;
         color: white;
+        z-index: 10;
     }
 
     .footer-container {

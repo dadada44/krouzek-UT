@@ -64,6 +64,7 @@
       width: 100%; 
       margin: auto;
       box-sizing: border-box;
+      max-width: 1300px;
   }
 </style>
 

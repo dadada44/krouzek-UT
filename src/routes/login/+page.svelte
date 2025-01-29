@@ -44,6 +44,7 @@
 </script>
 
 <div class="page-container">
+	<img src="/login-back.png" class="background" alt="">
 	<form class="login-form" on:submit={login}>
 		<h1>LOGIN</h1>
 		<label>
@@ -71,16 +72,24 @@
 </div>
 
 <style>
+	.background{
+		width: 100vw;
+		position: absolute;
+		object-fit: cover;
+		z-index: -1;
+		top: 0;
+		height: 100%;
+		filter: brightness(0.9);
+	}
+
 
 	.page-container {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		padding: 20px;
+		position: relative;
 		min-height: 100vh;
 		justify-content: center;
-		background: url('/login-back.png') no-repeat center center fixed;
-
 	}
 
 	.login-form {

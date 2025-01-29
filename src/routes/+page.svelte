@@ -1,12 +1,10 @@
 <script>
   import Button from "$lib/components/Button.svelte";
-
   import { text } from 'drizzle-orm/sqlite-core';
-  import { onMount } from "svelte";
   import AOS from "aos";
   import "aos/dist/aos.css";
 
-  onMount(() => {
+  $effect(() => {
     AOS.init({
       duration: 900,
       easing: "ease-in-out",
@@ -14,42 +12,43 @@
     });
   });
 </script>
+    
+<div class="container">
+  <img src="/skola-background.png" class="background" alt="">
+  <div class="title" data-aos="fade-up">
+    <h1>PROPOJUJEME UČITELE<br />SDÍLÍME ZNALOSTI!</h1>
+  </div>
 
-<body>
-  <main>
-    <div class="container">
-      <div class="title" data-aos="fade-up">
-        <h1>PROPOJUJEME UČITELE<br />SDÍLÍME ZNALOSTI!</h1>
-      </div>
+  <div class="content" 
+    data-aos="fade-zoom-in"
+    data-aos-easing="ease-in-back"
+    data-aos-delay="300"
+    data-aos-offset="0">
+    
+    <div class="text-content">
+      <h2>Naším cílem je vytvořit prostor, kde mohou pedagogové sdílet své zkušenosti, 
+          materiály a nápady pro inspiraci a podporu vzdělávání.</h2>
+        <Button>Hi</Button>
 
-      <div class="content" 
-        data-aos="fade-zoom-in"
-        data-aos-easing="ease-in-back"
-        data-aos-delay="300"
-        data-aos-offset="0">
-        
-        <div class="text-content">
-          <h2>Naším cílem je vytvořit prostor, kde mohou pedagogové sdílet své zkušenosti, 
-              materiály a nápady pro inspiraci a podporu vzdělávání.</h2>
-            <button Button>Hi</button>
-
-        </div>
-
-        <div class="img-content">
-          <img src="/libr.png" alt="Kniha v knihovně" class="lib-img" />
-        </div>
-      </div>
     </div>
-  </main>
-</body>
+
+    <div class="img-content">
+      <img src="/libr.png" alt="Kniha v knihovně" class="lib-img" />
+    </div>
+  </div>
+</div>
 
 <style>
-  main {
-    background: url('/skola-background.png') no-repeat center center/cover;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+
+  .background{
+    width: 100vw;
+    position: absolute;
+    object-fit: cover;
+    z-index: -1;
+    top: 0;
+    height: 100%;
+    filter: brightness(0.9);
   }
 
   .container {
@@ -60,9 +59,9 @@
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
-    padding-top: 100px;
     gap: 40px;
+    position: relative;
+    min-height: 100vh;
   }
 
   .title {
@@ -120,6 +119,7 @@
     width: 250px;
     height: auto;
     box-shadow: rgba(239, 119, 0, 0.779) 7px 7px;
+    object-fit: cover;
   }
 
   @media (max-width: 768px) {
