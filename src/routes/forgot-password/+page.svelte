@@ -20,6 +20,7 @@
 </script>
 
 <div class="page-container">
+	<img src="/login-back.png" class="page-container" alt="">
 	<form class="forgot-password-form" on:submit|preventDefault={handleForgotPassword}>
 		<h1>Forgot Password?</h1>
 
@@ -43,10 +44,8 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		padding: 20px;
 		min-height: 100vh;
 		justify-content: center;
-		background: url('/login-back.png') no-repeat center center fixed;
 	}
 
 	.forgot-password-form {
@@ -54,8 +53,9 @@
 		padding: 30px;
 		border-radius: 10px;
 		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-		width: 400px;
+		width: 700px;
 		text-align: center;
+		position: absolute;
 	}
 
 	.forgot-password-form h1 {
