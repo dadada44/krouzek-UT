@@ -20,7 +20,7 @@
 </script>
 
 <div class="page-container">
-	<img src="/login-back.png" class="page-container" alt="">
+	<img src="/login-back.png" class="background" alt="">
 	<form class="forgot-password-form" on:submit|preventDefault={handleForgotPassword}>
 		<h1>Forgot Password?</h1>
 
@@ -40,10 +40,23 @@
 </div>
 
 <style>
+
+	.background{
+		width: 100vw;
+		position: absolute;
+		object-fit: cover;
+		z-index: -1;
+		top: 0;
+		height: 100%;
+		filter: brightness(0.9);
+	}
+
+
 	.page-container {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		position: relative;
 		min-height: 100vh;
 		justify-content: center;
 	}

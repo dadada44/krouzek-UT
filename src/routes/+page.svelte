@@ -36,6 +36,10 @@
       <img src="/libr.png" alt="Kniha v knihovně" class="lib-img" />
     </div>
   </div>
+
+  <div>
+    
+  </div>
 </div>
 
 <style>
@@ -48,7 +52,7 @@
     z-index: -1;
     top: 0;
     height: 100%;
-    filter: brightness(0.9);
+    filter: brightness(0.45);
   }
 
   .container {
